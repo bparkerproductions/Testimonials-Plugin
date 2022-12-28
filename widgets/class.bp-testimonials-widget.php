@@ -18,14 +18,28 @@ class BP_Testimonials_Widget extends WP_Widget {
         register_widget('Bp_Testimonials_Widget');
       }
     );
+
+    if ( is_active_widget( false, false, $this->id_base ) ) {
+      add_action( 'wp_enqueue_scripts', array( $this, 'enqueue' ) );
+    }
+  }
+
+  public function enqueue() {
+    wp_enqueue_style(
+      'bp-testimonials-style-css',
+      BP_TESTIMONIALS_URL . 'assets/css/frontend.css',
+      array(),
+      BP_TESTIMONIALS_VERSION,
+      'all'
+    );
   }
 
   public function form( $instance ) {
-    $title = 'Testimonials Title';
-    $number = 5;
-    $company = true;
-    $project = true;
-    $name = true;
+    $title = isset( $instance['title'] ) ? $instance['title'] : '';
+    $number = isset( $instance['number'] ) ? (int) $instance['number'] : 5;
+    $company = isset( $instance['company'] ) ? (bool) $instance['company'] : true;
+    $project = isset( $instance['project'] ) ? (bool) $instance['project'] : true;
+    $name = isset( $instance['name'] ) ? (bool) $instance['name'] : true;
     ?>
 
     <p>
@@ -94,10 +108,26 @@ class BP_Testimonials_Widget extends WP_Widget {
   }
 
   public function widget( $args, $instance ) {
+    $default_title = 'BP Testimonials';
+    $title = !empty( $instance['title'] ) ? $instance['title'] : $default_title;
+    $number = !empty( $instance['number'] ) ? $instance['number'] : 5;
+    $company = !empty( $instance['company'] ) ? $instance['company'] : true;
+    $company = !empty( $instance['name'] ) ? $instance['name'] : true;
+    $company = !empty( $instance['project'] ) ? $instance['project'] : true;
 
+    echo $args['before_widget'];
+    echo $args['before_title'] . $title . $args['after_title'];
+    require( BP_TESTIMONIALS_PATH . 'views/bp-testimonials_widget.php');
+    echo $args['after_widget'];
   }
 
   public function update( $new_instance, $old_instance ) {
-
+    $instance = $old_instance;
+    $instance['title'] = $new_instance['title'];
+    $instance['number'] = $new_instance['number'];
+    $instance['company'] = !empty( $new_instance['company'] ) ? 1 : 0;
+    $instance['name'] = !empty( $new_instance['name'] ) ? 1 : 0;
+    $instance['project'] = !empty( $new_instance['project'] ) ? 1 : 0;
+    return $instance;
   }
 }
