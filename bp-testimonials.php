@@ -38,14 +38,16 @@ if( !class_exists( 'BP_Testimonials' ) ){
         public function __construct() {
 
             // Define constants used througout the plugin
-            $this->define_constants();           
-
+            $this->define_constants();
+            
+            require_once( BP_TESTIMONIALS_PATH . 'post-types/class.bp-testimonials-cpt.php' );
+            $BP_Testimonials_Post_Type = new BP_Testimonials_Post_Type();
         }
 
          /**
          * Define Constants
          */
-        public function define_constants(){
+        public function define_constants() {
             // Path/URL to root of this plugin, with trailing slash.
             define ( 'BP_TESTIMONIALS_PATH', plugin_dir_path( __FILE__ ) );
             define ( 'BP_TESTIMONIALS_URL', plugin_dir_url( __FILE__ ) );
@@ -55,28 +57,29 @@ if( !class_exists( 'BP_Testimonials' ) ){
         /**
          * Activate the plugin
          */
-        public static function activate(){
+        public static function activate() {
             update_option('rewrite_rules', '' );
         }
 
         /**
          * Deactivate the plugin
          */
-        public static function deactivate(){
+        public static function deactivate() {
+            unregister_post_type( 'bp-testimonials' );
             flush_rewrite_rules();
         }
 
         /**
          * Uninstall the plugin
          */
-        public static function uninstall(){
+        public static function uninstall() {
 
         }
 
     }
 }
 
-if( class_exists( 'BP_Testimonials' ) ){
+if( class_exists( 'BP_Testimonials' ) ) {
     // Installation and uninstallation hooks
     register_activation_hook( __FILE__, array( 'BP_Testimonials', 'activate'));
     register_deactivation_hook( __FILE__, array( 'BP_Testimonials', 'deactivate'));
