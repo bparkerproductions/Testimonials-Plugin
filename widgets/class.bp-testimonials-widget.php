@@ -27,7 +27,7 @@ class BP_Testimonials_Widget extends WP_Widget {
   public function enqueue() {
     wp_enqueue_style(
       'bp-testimonials-style-css',
-      BP_TESTIMONIALS_URL . 'assets/css/frontend.css',
+      BP_TESTIMONIALS_URL . 'assets/testimonial.css',
       array(),
       BP_TESTIMONIALS_VERSION,
       'all'

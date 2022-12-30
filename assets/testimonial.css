@@ -1,0 +1,62 @@
+.testimonials .testimonials-container .body {
+  padding: 20px;
+}
+
+.testimonials .testimonials-container .client-info {
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+  width: 100%;
+  border-top: 1px solid rgba(44, 47, 51, 0.15);
+  padding-top: 15px;
+  color: #2c2f33;
+}
+
+@media screen (max-width: 600px) {
+  .testimonials .testimonials-container .body .client-info {
+    flex-direction: column;
+    align-items: flex-start;
+ }
+}
+
+.testimonials .testimonials-container .card {
+  margin-bottom: 15px;
+}
+
+.testimonials .testimonials-container .client-info a {
+  color: #2c2f33;
+  border-bottom: 1px solid#2c2f33;
+}
+
+
+.testimonials .testimonials-container .client-info .client-name,
+.testimonials .testimonials-container .client-info .client-company {
+  margin-right: 15px;
+}
+
+.testimonials .testimonials-container .body .left-quote-container svg {
+  font-size: 2em;
+  color: #72addd;
+}
+
+.testimonials .testimonials-container .slick-slide {
+  box-sizing: border-box;
+  padding: 0 5px;
+}
+
+@media screen (min-width: 600px) {
+  .testimonials .testimonials-container .slick-slide {
+    padding: 20px;
+    height: 400px;
+ }
+}
+
+.testimonials .testimonials-container .slick-slide > div, .testimonials .testimonials-container .slick-slide .testimonial {
+  height: 100%;
+}
+
+.testimonials .testimonials-container .slick-slide .body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

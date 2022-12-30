@@ -7,20 +7,11 @@
   );
 ?>
 
-<section class="testimonials column-center spacer">
-  <div class="inner-container testimonials-container">
-
-    <div class="slider-toggle-arrows">
-      <div class="previous toggle">
-        <i class="fas fa-chevron-left"></i>
-      </div>
-      <div class="next toggle">
-        <i class="fas fa-chevron-right"></i>
-      </div>
-    </div>
+<section class="testimonials column-center">
+  <div class="testimonials-container">
 
     <!-- Testimonials -->
-    <div class="slider-container">
+    <div class="slider-container layout-two-columns">
     <?php 
     if ( $testimonials->have_posts() ):
       while ($testimonials->have_posts() ):
