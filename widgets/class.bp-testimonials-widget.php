@@ -32,6 +32,14 @@ class BP_Testimonials_Widget extends WP_Widget {
       BP_TESTIMONIALS_VERSION,
       'all'
     );
+
+    wp_enqueue_script(
+      'bp-testimonials-style-js',
+      BP_TESTIMONIALS_URL . 'assets/testimonial.js',
+      array(),
+      BP_TESTIMONIALS_VERSION,
+      'all'
+    );
   }
 
   public function form( $instance ) {
@@ -116,7 +124,6 @@ class BP_Testimonials_Widget extends WP_Widget {
     $company = !empty( $instance['project'] ) ? $instance['project'] : true;
 
     echo $args['before_widget'];
-    echo $args['before_title'] . $title . $args['after_title'];
     require( BP_TESTIMONIALS_PATH . 'views/bp-testimonials_widget.php');
     echo $args['after_widget'];
   }

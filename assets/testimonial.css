@@ -28,6 +28,12 @@
   border-bottom: 1px solid#2c2f33;
 }
 
+.testimonials .testimonials-container .body {
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
 .testimonials .testimonials-container .client-info .client-name,
 .testimonials .testimonials-container .client-info .client-company {
