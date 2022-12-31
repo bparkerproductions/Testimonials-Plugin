@@ -12,20 +12,19 @@
   color: #2c2f33;
 }
 
-@media screen (max-width: 600px) {
-  .testimonials .testimonials-container .body .client-info {
-    flex-direction: column;
-    align-items: flex-start;
- }
+/* Each column/card  */
+.testimonials .testimonials-container .col {
+  margin-bottom: 20px;
 }
 
-.testimonials .testimonials-container .card {
-  margin-bottom: 15px;
+@media (max-width: 650px) {
+  .testimonials .testimonials-container .col {
+    flex-basis: 100%;
+  }
 }
 
-.testimonials .testimonials-container .client-info a {
-  color: #2c2f33;
-  border-bottom: 1px solid#2c2f33;
+.testimonials .testimonials-container .col.hidden {
+  display: none;
 }
 
 .testimonials .testimonials-container .body {
@@ -33,6 +32,12 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+/* Client and project links */
+.testimonials .testimonials-container .client-info a {
+  color: #2c2f33;
+  border-bottom: 1px solid#2c2f33;
 }
 
 .testimonials .testimonials-container .client-info .client-name,
@@ -45,24 +50,14 @@
   color: #72addd;
 }
 
-.testimonials .testimonials-container .slick-slide {
-  box-sizing: border-box;
-  padding: 0 5px;
+/* Testimonials Toggle Styles  */
+.testimonials .testimonials-container .testimonials-toggle {
+  cursor: pointer;
 }
 
-@media screen (min-width: 600px) {
-  .testimonials .testimonials-container .slick-slide {
-    padding: 20px;
-    height: 400px;
- }
-}
-
-.testimonials .testimonials-container .slick-slide > div, .testimonials .testimonials-container .slick-slide .testimonial {
-  height: 100%;
-}
-
-.testimonials .testimonials-container .slick-slide .body {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+.testimonials .testimonials-container .testimonials-toggle svg {
+  font-size: 22px;
+  margin-bottom: -2px;
+  margin-right: 3px;
+  color: #72addd;
 }

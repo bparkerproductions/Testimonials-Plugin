@@ -64,5 +64,9 @@
       endif;
       ?>
     </div>
+
+    <p class="testimonials-toggle">
+      <i class="fas fa-caret-down"></i> <span class="toggle-text">See All Testimonials</span>
+    </p>
   </div>
 </section>
