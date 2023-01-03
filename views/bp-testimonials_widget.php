@@ -34,7 +34,7 @@
           </div>
             <div class="client-info ">
               <a 
-                class="client-company <?= $company == "" ? 'disabled' : ''?>"
+                class="client-company <?= get_field('company', $testimonial) == "" ? 'disabled' : ''?>"
                 href="<?= get_field('company', $testimonial) ?>"
               >
                 <i class="fas fa-briefcase"></i>

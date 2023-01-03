@@ -45,9 +45,6 @@ class BP_Testimonials_Widget extends WP_Widget {
   public function form( $instance ) {
     $title = isset( $instance['title'] ) ? $instance['title'] : '';
     $number = isset( $instance['number'] ) ? (int) $instance['number'] : 5;
-    $company = isset( $instance['company'] ) ? (bool) $instance['company'] : true;
-    $project = isset( $instance['project'] ) ? (bool) $instance['project'] : true;
-    $name = isset( $instance['name'] ) ? (bool) $instance['name'] : true;
     ?>
 
     <p>
@@ -75,43 +72,6 @@ class BP_Testimonials_Widget extends WP_Widget {
         value="<?= esc_attr( $number ) ?>"
       />
     </p>
-
-    <p>
-      <label for="<?= $this->get_field_id( 'company' ) ?>">
-        <?php esc_html_e( 'Show company title', 'bp-testimonials' ); ?>
-      </label>
-      <input 
-        type="checkbox"
-        class="checkbox" id="<?= $this->get_field_id( 'company' ) ?>"
-        name="<?= $this->get_field_name( 'company' ) ?>"
-        <?php checked( $company ) ?>
-      />
-    </p>
-
-    <p>
-      <label for="<?= $this->get_field_id( 'name' ) ?>">
-        <?php esc_html_e( 'Show client name', 'bp-testimonials' ); ?>
-      </label>
-      <input 
-        type="checkbox"
-        class="checkbox" id="<?= $this->get_field_id( 'name' ) ?>"
-        name="<?= $this->get_field_name( 'name' ) ?>"
-        <?php checked( $name ) ?>
-      />
-    </p>
-
-    <p>
-      <label for="<?= $this->get_field_id( 'project' ) ?>">
-        <?php esc_html_e( 'Show project link', 'bp-testimonials' ); ?>
-      </label>
-      <input 
-        type="checkbox"
-        class="checkbox" id="<?= $this->get_field_id( 'project' ) ?>"
-        name="<?= $this->get_field_name( 'project' ) ?>"
-        <?php checked( $project ) ?>
-      />
-    </p>
-
     <?php
   }
 
@@ -119,9 +79,6 @@ class BP_Testimonials_Widget extends WP_Widget {
     $default_title = 'BP Testimonials';
     $title = !empty( $instance['title'] ) ? $instance['title'] : $default_title;
     $number = !empty( $instance['number'] ) ? $instance['number'] : 5;
-    $company = !empty( $instance['company'] ) ? $instance['company'] : true;
-    $company = !empty( $instance['name'] ) ? $instance['name'] : true;
-    $company = !empty( $instance['project'] ) ? $instance['project'] : true;
 
     echo $args['before_widget'];
     require( BP_TESTIMONIALS_PATH . 'views/bp-testimonials_widget.php');
@@ -132,9 +89,6 @@ class BP_Testimonials_Widget extends WP_Widget {
     $instance = $old_instance;
     $instance['title'] = $new_instance['title'];
     $instance['number'] = $new_instance['number'];
-    $instance['company'] = !empty( $new_instance['company'] ) ? 1 : 0;
-    $instance['name'] = !empty( $new_instance['name'] ) ? 1 : 0;
-    $instance['project'] = !empty( $new_instance['project'] ) ? 1 : 0;
     return $instance;
   }
 }
