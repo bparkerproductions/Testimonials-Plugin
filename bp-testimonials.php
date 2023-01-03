@@ -6,7 +6,7 @@
 * Version: 1.0
 * Requires at least: 5.6
 * Requires PHP: 7.0
-* Author: Marcelo Vieira
+* Author: Brandon Parker
 * License: GPL v2 or later
 * License URI: https://www.gnu.org/licenses/gpl-2.0.html
 * Text Domain: bp-testimonials
