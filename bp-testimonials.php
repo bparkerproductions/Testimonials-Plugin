@@ -75,14 +75,6 @@ if( !class_exists( 'BP_Testimonials' ) ){
             unregister_post_type( 'bp-testimonials' );
             flush_rewrite_rules();
         }
-
-        /**
-         * Uninstall the plugin
-         */
-        public static function uninstall() {
-
-        }
-
     }
 }
 
