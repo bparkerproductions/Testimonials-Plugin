@@ -43,6 +43,10 @@ if( !class_exists( 'BP_Testimonials' ) ){
             require_once( BP_TESTIMONIALS_PATH . 'post-types/class.bp-testimonials-cpt.php' );
             $BP_Testimonials_Post_Type = new BP_Testimonials_Post_Type();
 
+            // Include the shortcode
+            require_once( BP_TESTIMONIALS_PATH . 'shortcodes/class.bp-testimonials.shortcode.php' );
+            $BP_Testimonial_Shortcode = new BP_Testimonial_Shortcode();
+
             require_once( BP_TESTIMONIALS_PATH . 'widgets/class.bp-testimonials-widget.php' );
             $BP_Testimonials_Widget = new BP_Testimonials_Widget();
         }
