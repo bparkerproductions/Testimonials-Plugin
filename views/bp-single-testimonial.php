@@ -1,3 +1,5 @@
+<?php if ( !$testimonial ) $testimonial = $id[0] ?>
+
 <div class="testimonial col card">
   <div class="head blue">
     <h5 class="category"><?= get_field('name', $testimonial) ?></h5>

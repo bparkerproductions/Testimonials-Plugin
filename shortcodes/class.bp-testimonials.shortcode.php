@@ -22,7 +22,7 @@ if ( !class_exists( 'BP_Testimonial_Shortcode' ) ) {
       }
 
       ob_start();
-      require( BP_TESTIMONIALS_PATH . '/views/test.php' );
+      require( BP_TESTIMONIALS_PATH . '/views/bp-single-testimonial.php' );
       return ob_get_clean();
     }
   }
